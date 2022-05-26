@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pritesh/Signup%20and%20Login%20Screen/forgot.dart';
 import 'package:pritesh/Signup%20and%20Login%20Screen/login.dart';
+
+import '../home/home.dart';
 
 class SingUpScreen extends StatefulWidget {
   const SingUpScreen({Key? key}) : super(key: key);
@@ -62,14 +63,6 @@ class _SingUpScreenState extends State<SingUpScreen> {
                       fontSize: 16,
                       letterSpacing: -1,
                     ),
-                    suffix: Text(
-                      'Show',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                          decoration: TextDecoration.underline,
-                          color: Color(0xFF573353)),
-                    ),
                     filled: true,
                     fillColor: Color(0xFFFFFFFF),
                     border: OutlineInputBorder(
@@ -106,7 +99,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                     prefix: Image.asset('assest/ic_cross.png'),
                     hintText: 'Email',
                     hintStyle: TextStyle(
-                      fontFamily: 'Manrope',
+                      fontFamily: 'Manrope-medium',
                       color: Color(0xFF573353).withOpacity(0.50),
                       fontSize: 16,
                       letterSpacing: -1,
@@ -148,7 +141,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                     prefix: Image.asset('assest/ic_cross.png'),
                     hintText: 'Password',
                     hintStyle: TextStyle(
-                      fontFamily: 'Manrope',
+                      fontFamily: 'Manrope-medium',
                       color: Color(0xFF573353).withOpacity(0.50),
                       fontSize: 16,
                       letterSpacing: -1,
@@ -159,6 +152,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 14,
+                          fontFamily: 'Manrope-medium',
                           decoration: TextDecoration.underline,
                           color: Color(0xFF573353)),
                     ),
@@ -196,10 +190,11 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   Text(
                     'Keep me signed in',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                         fontSize: 16,
+                        letterSpacing: -1,
                         color: Color(0xFF573353),
-                        fontFamily: 'Manrope'),
+                        fontFamily: 'Manrope-medium'),
                   ),
                 ],
               ),
@@ -222,10 +217,11 @@ class _SingUpScreenState extends State<SingUpScreen> {
                   Text(
                     'Email me about special pricing and more',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                         fontSize: 16,
+                        letterSpacing: -1,
                         color: Color(0xFF573353),
-                        fontFamily: 'Manrope'),
+                        fontFamily: 'Manrope-medium'),
                   ),
                 ],
               ),
@@ -250,7 +246,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Forgot(),
+                          builder: (context) => Home(),
                         ));
                   },
                   child: Text(
@@ -281,7 +277,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                 style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 13,
-                    color: Color(0xFF573353),
+                    color: Color(0xFF573353).withOpacity(0.50),
                     fontFamily: 'Manrope'),
               ),
               Expanded(
@@ -315,7 +311,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
                           child: Image.asset("assest/ic_google.png"),
                         ),
                         SizedBox(
-                          width: 16,
+                          width: 12,
                         ),
                         Text(
                           "Google",
@@ -340,9 +336,14 @@ class _SingUpScreenState extends State<SingUpScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Center(child: Image.asset("assest/ic_qua.png")),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 0),
+                          child: Image.asset(
+                            "assest/ic_qua.png",
+                          ),
+                        ),
                         SizedBox(
-                          width: 16,
+                          width: 12,
                         ),
                         Text(
                           "Facebook",

@@ -38,161 +38,161 @@ class _CourseOverViewState extends State<CourseOverView> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assest/ic_bg3.png'),
-                alignment: Alignment.bottomCenter)),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 39,
-            ),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-              Image.asset("assest/ic_more.png"),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assest/ic_bg3.png'),
+                  alignment: Alignment.bottomCenter)),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 39,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                Image.asset("assest/ic_more.png"),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 55),
+                  child: Text(
+                    'Courses',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                        color: Color(0xFF573353),
+                        letterSpacing: -1,
+                        fontFamily: 'Manrope'),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Image.asset("assest/ic_serarch.png"),
+              ]),
               SizedBox(
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 55),
-                child: Text(
-                  'Courses',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                      color: Color(0xFF573353),
-                      letterSpacing: -1,
-                      fontFamily: 'Manrope'),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Image.asset("assest/ic_header.png"),
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  children: [
+                    Text(
+                      'Sort By:',
+                      style: TextStyle(
+                          fontFamily: "Manrope",
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: Color(0xFF573353)),
+                    ),
+                    Container(
+                      height: 33,
+                      width: 175,
+                      decoration: BoxDecoration(
+                          color: Color(0xFFFFFFFF),
+                          border: Border.all(
+                              color: Color.fromRGBO(87, 51, 83, 0.1)),
+                          borderRadius: BorderRadius.circular(12)),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          icon: Padding(
+                            padding: const EdgeInsets.only(right: 14, top: 3),
+                            child: Center(
+                                child: ImageIcon(
+                                    AssetImage('assest/ic_down arror.png'))),
+                          ),
+                          isExpanded: true,
+                          items: item
+                              .map((e) => DropdownMenuItem(
+                                    alignment: Alignment.centerLeft,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 15),
+                                      child: Text(
+                                        e,
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: 'Manrope',
+                                            fontWeight: FontWeight.w500,
+                                            color: Color(0xFF573353)),
+                                      ),
+                                    ),
+                                    value: e,
+                                  ))
+                              .toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              newvalue = value as String;
+                            });
+                          },
+                          value: newvalue,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 21,
+                    ),
+                    Container(
+                      height: 33,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          color: Color(0xFFFFFFFF),
+                          border: Border.all(
+                              color: Color.fromRGBO(87, 51, 83, 0.1)),
+                          borderRadius: BorderRadius.circular(12)),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          icon: Padding(
+                            padding: const EdgeInsets.only(right: 14, top: 3),
+                            child: Center(
+                                child: ImageIcon(
+                              AssetImage('assest/ic_down arror.png'),
+                              color: Color(0xFFFC9D45),
+                            )),
+                          ),
+                          isExpanded: true,
+                          items: item1
+                              .map((e) => DropdownMenuItem(
+                                    alignment: Alignment.centerLeft,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 15),
+                                      child: Text(
+                                        e,
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: 'Manrope',
+                                            fontWeight: FontWeight.w500,
+                                            color: Color(0xFFFC9D45)),
+                                      ),
+                                    ),
+                                    value: e,
+                                  ))
+                              .toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              newvalue1 = value as String;
+                            });
+                          },
+                          value: newvalue1,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
-                height: 20,
-              ),
-              Image.asset("assest/ic_serarch.png"),
-            ]),
-            SizedBox(
-              height: 41,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Image.asset("assest/ic_header.png"),
-            ),
-            SizedBox(
-              height: 24,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Row(
-                children: [
-                  Text(
-                    'Sort By:',
-                    style: TextStyle(
-                        fontFamily: "Manrope",
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16,
-                        color: Color(0xFF573353)),
-                  ),
-                  Container(
-                    height: 33,
-                    width: 175,
-                    decoration: BoxDecoration(
-                        color: Color(0xFFFFFFFF),
-                        border:
-                            Border.all(color: Color.fromRGBO(87, 51, 83, 0.1)),
-                        borderRadius: BorderRadius.circular(12)),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton(
-                        icon: Padding(
-                          padding: const EdgeInsets.only(right: 14, top: 3),
-                          child: Center(
-                              child: ImageIcon(
-                                  AssetImage('assest/ic_down arror.png'))),
-                        ),
-                        isExpanded: true,
-                        items: item
-                            .map((e) => DropdownMenuItem(
-                                  alignment: Alignment.centerLeft,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 15),
-                                    child: Text(
-                                      e,
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Manrope',
-                                          fontWeight: FontWeight.w500,
-                                          color: Color(0xFF573353)),
-                                    ),
-                                  ),
-                                  value: e,
-                                ))
-                            .toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            newvalue = value as String;
-                          });
-                        },
-                        value: newvalue,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 21,
-                  ),
-                  Container(
-                    height: 33,
-                    width: 100,
-                    decoration: BoxDecoration(
-                        color: Color(0xFFFFFFFF),
-                        border:
-                            Border.all(color: Color.fromRGBO(87, 51, 83, 0.1)),
-                        borderRadius: BorderRadius.circular(12)),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton(
-                        icon: Padding(
-                          padding: const EdgeInsets.only(right: 14, top: 3),
-                          child: Center(
-                              child: ImageIcon(
-                            AssetImage('assest/ic_down arror.png'),
-                            color: Color(0xFFFC9D45),
-                          )),
-                        ),
-                        isExpanded: true,
-                        items: item1
-                            .map((e) => DropdownMenuItem(
-                                  alignment: Alignment.centerLeft,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 15),
-                                    child: Text(
-                                      e,
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          fontFamily: 'Manrope',
-                                          fontWeight: FontWeight.w500,
-                                          color: Color(0xFFFC9D45)),
-                                    ),
-                                  ),
-                                  value: e,
-                                ))
-                            .toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            newvalue1 = value as String;
-                          });
-                        },
-                        value: newvalue1,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Container(
-                height: 500,
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: img.length,
+                  physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: ClipRRect(
@@ -212,11 +212,11 @@ class _CourseOverViewState extends State<CourseOverView> {
                                   ));
                             },
                             child: Container(
-                              height: 273,
+                              height: 264,
                               width: 374,
                               decoration: BoxDecoration(
-                                color: Colors.white,
-                              ),
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(12)),
                               child: Column(
                                 children: [
                                   Image.asset(img[index]),
@@ -235,44 +235,42 @@ class _CourseOverViewState extends State<CourseOverView> {
                                   SizedBox(
                                     height: 8,
                                   ),
-                                  Container(
-                                    child: Column(
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 12),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 12),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                time[index],
-                                                style: TextStyle(
-                                                    letterSpacing: -1,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 12,
-                                                    color: Color(0xFF573353)),
-                                              ),
-                                              Image.asset("assest/ic_share.png")
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 12),
-                                          child: Align(
-                                            alignment: Alignment.topLeft,
-                                            child: Text(
-                                              lessons[index],
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              time[index],
                                               style: TextStyle(
                                                   letterSpacing: -1,
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 12,
-                                                  color: Color(0xFF573353)
-                                                      .withOpacity(0.50)),
+                                                  color: Color(0xFF573353)),
                                             ),
-                                          ),
+                                            Align(
+                                              alignment: Alignment.topLeft,
+                                              child: Text(
+                                                lessons[index],
+                                                style: TextStyle(
+                                                    letterSpacing: -1,
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 12,
+                                                    color: Color(0xFF573353)
+                                                        .withOpacity(0.50)),
+                                              ),
+                                            ),
+                                          ],
                                         ),
+                                        Image.asset("assest/ic_share.png")
                                       ],
                                     ),
                                   ),
@@ -288,9 +286,9 @@ class _CourseOverViewState extends State<CourseOverView> {
                     ),
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Stack(

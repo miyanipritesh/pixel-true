@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pritesh/Signup%20and%20Login%20Screen/singup.dart';
 import 'package:pritesh/color.dart';
 
+import 'forgot.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -173,14 +175,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 13,
                   ),
-                  Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                      color: Color(0xFF573353),
-                      decoration: TextDecoration.none,
-                      fontFamily: font.Manrope,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Forgot(),
+                          ));
+                    },
+                    child: Text(
+                      "Forgot Password?",
+                      style: TextStyle(
+                        color: Color(0xFF573353),
+                        decoration: TextDecoration.none,
+                        fontFamily: font.Manrope,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                   SizedBox(

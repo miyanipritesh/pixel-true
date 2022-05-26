@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../home/home.dart';
+import '../home/new_habits.dart';
+
 class CommunityScreen extends StatefulWidget {
   const CommunityScreen({Key? key}) : super(key: key);
 
@@ -9,7 +12,28 @@ class CommunityScreen extends StatefulWidget {
 
 class _CommunityScreenState extends State<CommunityScreen> {
   bool current = false;
-
+  List community = [
+    Community(
+        img: 'assest/ic_photo1.png',
+        name: 'Jerome',
+        dec:
+            'Man, youre my new guru! Viewing the lessons for a second time. Thoroughly pleased. And impressed that you draw from scientific literature in telling memorable...'),
+    Community(
+        img: 'assest/ic_photo2.png',
+        name: 'Gretchen',
+        dec:
+            'I loved the course! I ve been trying to break all this great stuff down into manageable chunks to help my clients develop healthy habits and achieve their personal... '),
+    Community(
+        img: 'assest/ic_photo3.png',
+        name: 'Al',
+        dec:
+            'This course contains the most complete material on habit formation that I ve seen. There is just enough theory to explain the principles, and not so much...'),
+    Community(
+        img: 'assest/ic_photo4.png',
+        name: 'Colin',
+        dec:
+            'James Clear s Habit s Academy course has tremendously changed my life for the better! Having been a self improvement aficionado for decades...'),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +50,11 @@ class _CommunityScreenState extends State<CommunityScreen> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Image.asset("assest/ic_more.png"),
+                    InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Image.asset("assest/ic_more.png")),
                     Center(
                       child: Text(
                         'Community',
@@ -46,10 +74,10 @@ class _CommunityScreenState extends State<CommunityScreen> {
             ),
             ListView.builder(
               shrinkWrap: true,
-              itemCount: 4,
+              itemCount: community.length,
               itemBuilder: (context, index) => Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                 child: Container(
                   height: 164,
                   width: 374,
@@ -64,13 +92,13 @@ class _CommunityScreenState extends State<CommunityScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Image.asset("assest/ic_photo1.png"),
+                            Image.asset(community[index].img),
                             Padding(
                               padding: const EdgeInsets.only(right: 200),
                               child: Column(
                                 children: [
                                   Text(
-                                    'Jerome',
+                                    community[index].name,
                                     style: TextStyle(
                                         color: Color(0xFF573353),
                                         fontSize: 14,
@@ -89,7 +117,15 @@ class _CommunityScreenState extends State<CommunityScreen> {
                                 ],
                               ),
                             ),
-                            Image.asset("assest/ic_sharepost.png"),
+                            InkWell(
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                            content: Text('Under devlepment'),
+                                          ));
+                                },
+                                child: Image.asset("assest/ic_sharepost.png")),
                           ],
                         ),
                       ),
@@ -100,12 +136,12 @@ class _CommunityScreenState extends State<CommunityScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16, right: 21),
                         child: Text(
-                          'Man, youre my new guru! Viewing the lessons for a second time. Thoroughly pleased. And impressed that you draw from scientific literature in telling memorable...',
+                          community[index].dec,
                           style: TextStyle(
                               color: Color(0xFF573353),
                               fontSize: 14,
-                              fontWeight: FontWeight.w100,
-                              fontFamily: 'Manrope'),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Manrope-medium'),
                         ),
                       ),
                       Row(
@@ -183,29 +219,79 @@ class _CommunityScreenState extends State<CommunityScreen> {
             child: Image.asset("assest/Rectangle.png"),
           ),
           Positioned(
-              top: 29, left: 25, child: Image.asset("assest/ic_bn-1.png")),
+              top: 29,
+              left: 25,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 0;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-1.png"))),
           Positioned(
-              left: 107, top: 26, child: Image.asset("assest/ic_bn-2.png")),
+              left: 107,
+              top: 26,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 1;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-2.png"))),
           Positioned(
-              left: 266, top: 25, child: Image.asset("assest/ic_bn-3.png")),
+              left: 266,
+              top: 25,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 2;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-3.png"))),
           Positioned(
-              left: 340, top: 23, child: Image.asset("assest/ic_bn-4.png")),
+              left: 340,
+              top: 23,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 3;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-4.png"))),
         ],
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(18.0),
+      floatingActionButton: Container(
+        height: 45,
+        width: 45,
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+              offset: Offset(0, 20),
+              blurRadius: 60,
+              color: Color(0xFFFC9D45).withOpacity(0.50))
+        ]),
         child: FloatingActionButton(
             backgroundColor: const Color(0xFFFC9D45),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(64)),
-            onPressed: () {},
-            child: const Icon(
-              Icons.add,
-              color: Color(0xFF573353),
-            )),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NewHabits(),
+                  ));
+            },
+            child: Image.asset('assest/ic_plus.png')),
       ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
+}
+
+class Community {
+  String img;
+  String name;
+
+  String dec;
+
+  Community({required this.img, required this.name, required this.dec});
 }

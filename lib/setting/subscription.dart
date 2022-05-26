@@ -37,6 +37,9 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
               ),
             ]),
           ),
+          SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
@@ -45,7 +48,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
               decoration: BoxDecoration(
                   color: const Color(0xFFFFFFFF),
                   borderRadius: BorderRadius.circular(12)),
-              height: 146,
+              height: 135,
               child: Row(
                 children: [
                   Column(
@@ -59,14 +62,14 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                             '60% off your upgrade',
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
-                                fontSize: 20,
+                                fontSize: 18,
                                 color: Color(0xFFFDA758),
                                 fontFamily: 'Manrope'),
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 130),
+                        padding: const EdgeInsets.only(right: 112),
                         child: Text(
                           'Expires in',
                           style: TextStyle(
@@ -84,7 +87,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                       // Timer for subscription
 
                       Padding(
-                        padding: const EdgeInsets.only(right: 25),
+                        padding: const EdgeInsets.only(right: 5),
                         child: CustomTimer(
                           end: const Duration(),
                           builder: (time) {
@@ -168,7 +171,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                   ),
                   Image.asset(
                     "assest/ic_Teepee.png",
-                    width: 120,
+                    width: 142,
                     height: 225,
                     fit: BoxFit.fitHeight,
                   ),
@@ -201,7 +204,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                         fontFamily: 'Manrope'),
                   ),
                   const SizedBox(
-                    height: 6,
+                    height: 2,
                   ),
                   const Divider(
                     thickness: 1,
@@ -512,26 +515,32 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                             thickness: 1,
                             color: Color(0xFFFFF3E9),
                           ),
-                          Text(
-                            'Lifetime',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 12,
-                                letterSpacing: -1,
-                                color: Color(0xFF573353),
-                                fontFamily: 'Manrope'),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 40),
+                            child: Text(
+                              'Lifetime',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12,
+                                  letterSpacing: -1,
+                                  color: Color(0xFF573353),
+                                  fontFamily: 'Manrope'),
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    ClipPath(
-                      child: Container(
-                        height: 40,
-                        width: 50,
-                        color: const Color(0xFFFDA758),
-                      ),
-                      clipper: CustomClipPath(),
-                    )
+                    Positioned(
+                        top: 93,
+                        left: 65,
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(12)),
+                            child: Image.asset('assest/ic_sub.png'))),
+                    Positioned(
+                        top: 108,
+                        left: 92,
+                        child: Image.asset('assest/ic_text.png')),
                   ],
                 ),
               ],
@@ -647,8 +656,8 @@ class CustomClipPath extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
-    path.lineTo(size.width / 2, size.height);
-    path.lineTo(10, size.height);
+    path.lineTo(size.width * 2, size.height);
+    path.lineTo(30, size.height);
     return path;
   }
 

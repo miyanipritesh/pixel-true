@@ -139,8 +139,8 @@ class _AnalyticsState extends State<Analytics> {
                           height: 75,
                           width: 75,
                           decoration: BoxDecoration(
-                              image: const DecorationImage(
-                                  image: const AssetImage('assest/ic_tant.png'),
+                              image: DecorationImage(
+                                  image: AssetImage('assest/ic_tant.png'),
                                   filterQuality: FilterQuality.high),
                               borderRadius: BorderRadius.circular(12),
                               color:
@@ -210,10 +210,13 @@ class _AnalyticsState extends State<Analytics> {
               const SizedBox(
                 height: 15,
               ),
+
+              // Calender code //
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Container(
-                  height: 500,
+                  height: 530,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)),
@@ -222,6 +225,7 @@ class _AnalyticsState extends State<Analytics> {
                       horizontal: 5,
                     ),
                     child: TableCalendar(
+                      startingDayOfWeek: StartingDayOfWeek.sunday,
                       rowHeight: 75,
                       firstDay: DateTime.utc(2010, 10, 16),
                       lastDay: DateTime.utc(2030, 3, 14),
@@ -327,49 +331,15 @@ class _AnalyticsState extends State<Analytics> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Column(
-                              children: [
-                                const Text(
-                                  '20 Days',
-                                  style: TextStyle(
-                                      fontFamily: "Klasik",
-                                      fontSize: 24,
-                                      letterSpacing: -2,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xFF573353)),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  'Longest Streak',
-                                  style: TextStyle(
-                                      fontFamily: "Manrope-medium",
-                                      fontSize: 12,
-                                      letterSpacing: -1,
-                                      fontWeight: FontWeight.w500,
-                                      color: const Color(0xFF573353)
-                                          .withOpacity(0.50)),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Image.asset('assest/ic_Streak.png'),
-                            VerticalDivider(
-                              color: Colors.black,
-                              thickness: 1,
-                            ),
-                            Column(
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.only(right: 15),
-                                  child: Text(
-                                    '0 Days',
+                        child: Container(
+                          height: 50,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Column(
+                                children: [
+                                  const Text(
+                                    '20 Days',
                                     style: TextStyle(
                                         fontFamily: "Klasik",
                                         fontSize: 24,
@@ -377,27 +347,61 @@ class _AnalyticsState extends State<Analytics> {
                                         fontWeight: FontWeight.w400,
                                         color: Color(0xFF573353)),
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  'Current Streak',
-                                  style: TextStyle(
-                                      fontFamily: "Manrope-medium",
-                                      fontSize: 12,
-                                      letterSpacing: -1,
-                                      fontWeight: FontWeight.w500,
-                                      color: const Color(0xFF573353)
-                                          .withOpacity(0.50)),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Image.asset('assest/ic_Lightning.png'),
-                          ],
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    'Longest Streak',
+                                    style: TextStyle(
+                                        fontFamily: "Manrope-medium",
+                                        fontSize: 12,
+                                        letterSpacing: -1,
+                                        fontWeight: FontWeight.w500,
+                                        color: const Color(0xFF573353)
+                                            .withOpacity(0.50)),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Image.asset('assest/ic_Streak.png'),
+                              Image.asset('assest/ic_vertical.png'),
+                              Column(
+                                children: [
+                                  const Padding(
+                                    padding: EdgeInsets.only(right: 15),
+                                    child: Text(
+                                      '0 Days',
+                                      style: TextStyle(
+                                          fontFamily: "Klasik",
+                                          fontSize: 24,
+                                          letterSpacing: -2,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xFF573353)),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    'Current Streak',
+                                    style: TextStyle(
+                                        fontFamily: "Manrope-medium",
+                                        fontSize: 12,
+                                        letterSpacing: -1,
+                                        fontWeight: FontWeight.w500,
+                                        color: const Color(0xFF573353)
+                                            .withOpacity(0.50)),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Image.asset('assest/ic_Lightning.png'),
+                            ],
+                          ),
                         ),
                       ),
                       const Divider(
@@ -405,7 +409,7 @@ class _AnalyticsState extends State<Analytics> {
                         color: Color(0xFFFFF3E9),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
+                        padding: EdgeInsets.symmetric(horizontal: 12),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
@@ -445,10 +449,7 @@ class _AnalyticsState extends State<Analytics> {
                               width: 10,
                             ),
                             Image.asset('assest/ic_CompletionRate.png'),
-                            const VerticalDivider(
-                              thickness: 1,
-                              color: Color(0xFF573353),
-                            ),
+                            Image.asset('assest/ic_vertical.png'),
                             Column(
                               children: [
                                 const Padding(
@@ -731,184 +732,12 @@ class _AnalyticsState extends State<Analytics> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
-/*  Widget _datesView(){
-    return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-    // header
-    Row(
-    children: <Widget>[
-        // prev month button
-        _toggleBtn(false),
-    // month and year
-    Expanded(
-    child: InkWell(
-    onTap: (){
-    setState((){
-    _currentView = CalendarViews.months
-    });
-    },
-    child: Center(
-    child: Text(
-    '${_monthNames[_currentDateTime.month-1]}${_currentDateTime.year}',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w700
-    ),
-    ),
-    ),
-    ),
-    ),
-    // next month button
-    _toggleBtn(true),
-    ],
-    ),
-    SizedBox(height: 20,),
-    Divider(color: Colors.white,),
-    SizedBox(height: 20,),
-    Flexible(child: _calendarBody()),
-    ],
-    );
-    }
-// next / prev month buttons
-  Widget _toggleBtn(bool next) {
-    return InkWell(
-      // explained in later stages
-      onTap: (){
-        if(_currentView == CalendarViews.dates){
-          setState(() => (next) ? _getNextMonth() : _getPrevMonth());
-        }
-        else if(_currentView == CalendarViews.year){
-          if(next){
-            midYear = (midYear == null)
-                ? _currentDateTime.year + 9 : midYear + 9;
-          }
-          else{
-            midYear = (midYear == null)
-                ? _currentDateTime.year - 9 : midYear - 9;
-          }
-          setState(() {});
-        }
-      },
-      child: Container(
-        width: 50,
-        height: 50,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-            border: Border.all(color: Colors.white),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.white.withOpacity(0.5),
-                offset: Offset(3, 3),
-                blurRadius: 3,
-                spreadRadius: 0,
-              ),
-            ],
-            gradient: LinearGradient(
-              colors: [Colors.black, Colors.black.withOpacity(0.1)],
-              stops: [0.5, 1],
-              begin: Alignment.bottomRight,
-              end: Alignment.topLeft,
-            )
-        ),
-        child: Icon((next)
-            ? Icons.arrow_forward_ios : Icons.arrow_back_ios,
-          color: Colors.white,),
-      ),
+
+  verticalDivider() {
+    return Divider(
+      height: 10,
+      thickness: 5,
+      color: Colors.greenAccent,
     );
   }
-// calendar body
-  Widget _calendarBody() {
-    if(_sequentialDates == null) return Container();
-    return GridView.builder(
-      shrinkWrap: true,
-      padding: EdgeInsets.zero,
-      itemCount: _sequentialDates.length + 7,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        mainAxisSpacing: 20,
-        crossAxisCount: 7,
-        crossAxisSpacing: 20,
-      ),
-      itemBuilder: (context, index){
-        if(index < 7) return _weekDayTitle(index);
-        if(_sequentialDates[index - 7].date == _selectedDateTime)
-          return _selector(_sequentialDates[index - 7]);
-        return _calendarDates(_sequentialDates[index - 7]);
-      },
-    );
-  }
-// calendar header
-  Widget _weekDayTitle(int index){
-    return Text(_weekDays[index],
-      style: TextStyle(color: Colors.yellow, fontSize: 12),);
-  }
-// calendar element
-  Widget _calendarDates(Calendar calendarDate){
-    return InkWell(
-      onTap: (){
-        if(_selectedDateTime != calendarDate.date){
-          if(calendarDate.nextMonth){
-            _getNextMonth();
-          }
-          else if(calendarDate.prevMonth){
-            _getNextMonth();
-          }
-          setState(() => _selectedDateTime = calendarDate.date);
-        }
-      },
-      child: Center(
-          child: Text(
-            '${calendarDate.date.day}',
-            style: TextStyle(
-              color: (calendarDate.thisMonth)
-                  ? (calendarDate.date.weekday == DateTime.sunday)
-                  ? Colors.yellow : Colors.white
-                  : (calendarDate.date.weekday == DateTime.sunday)
-                  ? Colors.yellow.withOpacity(0.5)
-                  : Colors.white.withOpacity(0.5),
-            ),
-          )
-      ),
-    );
-  }
-  // get next month calendar
-  void _getNextMonth(){
-    if(_currentDateTime.month == 12) {
-      _currentDateTime = DateTime(_currentDateTime.year+1, 1);
-    }
-    else{
-      _currentDateTime = DateTime(_currentDateTime.year, _currentDateTime.month+1);
-    }
-    _getCalendar();
-  }
-// date selector
-  Widget _selector(Calendar calendarDate) {
-    return Container(
-      width: 30,
-      height: 30,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(50),
-        border: Border.all(color: Colors.white, width: 4),
-        gradient: LinearGradient(
-          colors: [Colors.black.withOpacity(0.1), Colors.white],
-          stops: [0.1, 1],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.9),
-          borderRadius: BorderRadius.circular(50),
-        ),
-        child: Center(
-          child: Text(
-            '${calendarDate.date.day}',
-            style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w700
-            ),
-          ),
-        ),
-      ),
-    );
-  }*/
 }

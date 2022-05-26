@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../home/home.dart';
+import '../home/new_habits.dart';
+
 class CourseFullScreen extends StatefulWidget {
   final item;
   final descri;
@@ -68,14 +71,21 @@ class _CourseFullScreenState extends State<CourseFullScreen> {
                 ),
               ]),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              height: 199,
-              width: 374,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  image: DecorationImage(image: AssetImage(widget.item))),
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Stack(children: [
+              Container(
+                height: 199,
+                width: 374,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    image: DecorationImage(image: AssetImage(widget.item))),
+              ),
+              Center(
+                  child: Padding(
+                padding: const EdgeInsets.only(top: 75),
+                child: Image.asset('assest/ic_play2.png'),
+              ))
+            ]),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -324,10 +334,6 @@ class _CourseFullScreenState extends State<CourseFullScreen> {
                       ),
                     ],
                   ),
-                  /*  Divider(
-                    thickness: 1,
-                    color: Color(0xFFFFF3E9),
-                  ),*/
                 ],
               ),
             ),
@@ -341,29 +347,70 @@ class _CourseFullScreenState extends State<CourseFullScreen> {
             child: Image.asset("assest/Rectangle.png"),
           ),
           Positioned(
-              top: 29, left: 25, child: Image.asset("assest/ic_bn-1.png")),
+              top: 29,
+              left: 25,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 0;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-1.png"))),
           Positioned(
-              left: 107, top: 26, child: Image.asset("assest/ic_bn-2.png")),
+              left: 107,
+              top: 26,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 1;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-2.png"))),
           Positioned(
-              left: 266, top: 25, child: Image.asset("assest/ic_bn-3.png")),
+              left: 266,
+              top: 25,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 2;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-3.png"))),
           Positioned(
-              left: 340, top: 23, child: Image.asset("assest/ic_bn-4.png")),
+              left: 340,
+              top: 23,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 3;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-4.png"))),
         ],
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(18.0),
+      floatingActionButton: Container(
+        height: 45,
+        width: 45,
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+              offset: Offset(0, 20),
+              blurRadius: 60,
+              color: Color(0xFFFC9D45).withOpacity(0.50))
+        ]),
         child: FloatingActionButton(
             backgroundColor: const Color(0xFFFC9D45),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(64)),
-            onPressed: () {},
-            child: const Icon(
-              Icons.add,
-              color: Color(0xFF573353),
-            )),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NewHabits(),
+                  ));
+            },
+            child: Image.asset('assest/ic_plus.png')),
       ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

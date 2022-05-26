@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../home/home.dart';
+import '../Onbording_Screen/onbording_screen.dart';
 
 class PlashScreen extends StatefulWidget {
   const PlashScreen({Key? key}) : super(key: key);
@@ -17,8 +17,8 @@ class _PlashScreenState extends State<PlashScreen> {
     super.initState();
     Timer(
         const Duration(seconds: 3),
-        () => Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => Home())));
+        () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (BuildContext context) => OnbordingPage1())));
   }
 
   @override

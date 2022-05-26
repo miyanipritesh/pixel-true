@@ -98,6 +98,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "getwidget",
+      "rootUri": "file:///Volumes/DATA/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/getwidget-2.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "infinite_listview",
+      "rootUri": "file:///Volumes/DATA/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/infinite_listview-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "intl",
       "rootUri": "file:///Volumes/DATA/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
       "packageUri": "lib/",
@@ -130,6 +142,12 @@
     {
       "name": "modal_bottom_sheet",
       "rootUri": "file:///Volumes/DATA/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/modal_bottom_sheet-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "numberpicker",
+      "rootUri": "file:///Volumes/DATA/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/numberpicker-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -218,7 +236,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-05-25T04:24:10.068970Z",
+  "generated": "2022-05-26T06:30:13.181226Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pritesh/setting/subscription.dart';
 
+import '../Course and Community/community.dart';
+import '../Profile/dashboard.dart';
+import '../home/home.dart';
+import '../home/new_habits.dart';
+
 class SettingScreen extends StatefulWidget {
   const SettingScreen({Key? key}) : super(key: key);
 
@@ -14,8 +19,11 @@ class _SettingScreenState extends State<SettingScreen> {
     return Scaffold(
       backgroundColor: Color(0xFFFFF3E9),
       extendBody: true,
-      body: ListView(
+      body: Column(
         children: [
+          SizedBox(
+            height: 35,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(children: [
@@ -33,6 +41,9 @@ class _SettingScreenState extends State<SettingScreen> {
                     fontFamily: 'Manrope'),
               ),
             ]),
+          ),
+          SizedBox(
+            height: 14,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -86,7 +97,13 @@ class _SettingScreenState extends State<SettingScreen> {
                           style: ButtonStyle(
                               backgroundColor:
                                   MaterialStateProperty.all(Color(0xFFFDA758))),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Dashboard(),
+                                ));
+                          },
                           child: Text(
                             'View',
                             style: TextStyle(
@@ -113,7 +130,7 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20, top: 12),
+            padding: const EdgeInsets.only(top: 12, right: 290),
             child: Text(
               'General',
               style: TextStyle(
@@ -129,55 +146,65 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-            child: Container(
-              height: 74,
-              width: 374,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(12)),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Container(
-                    height: 38,
-                    width: 38,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assest/ic_notification.png')),
-                        color: Color(0xFFFDA758).withOpacity(0.10),
-                        borderRadius: BorderRadius.circular(12)),
-                  ),
-                  SizedBox(
-                    width: 14,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Notifications',
-                        style: TextStyle(
-                            letterSpacing: -1,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                            fontFamily: 'Manrope-medium',
-                            color: Color(0xFF573353)),
-                      ),
-                      Text(
-                        'Customize notifications',
-                        style: TextStyle(
-                            letterSpacing: -1,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14,
-                            fontFamily: 'Manrope-medium',
-                            color: Color(0xFF573353).withOpacity(0.50)),
-                      ),
-                    ],
-                  ),
-                  SizedBox(width: 110),
-                  Image.asset("assest/ic_forword.png")
-                ],
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NewHabits(),
+                    ));
+              },
+              child: Container(
+                height: 74,
+                width: 374,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Container(
+                      height: 38,
+                      width: 38,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assest/ic_notification.png')),
+                          color: Color(0xFFFDA758).withOpacity(0.10),
+                          borderRadius: BorderRadius.circular(12)),
+                    ),
+                    SizedBox(
+                      width: 14,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Notifications',
+                          style: TextStyle(
+                              letterSpacing: -1,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                              fontFamily: 'Manrope-medium',
+                              color: Color(0xFF573353)),
+                        ),
+                        Text(
+                          'Customize notifications',
+                          style: TextStyle(
+                              letterSpacing: -1,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              fontFamily: 'Manrope-medium',
+                              color: Color(0xFF573353).withOpacity(0.50)),
+                        ),
+                      ],
+                    ),
+                    SizedBox(width: 110),
+                    Image.asset("assest/ic_forword.png")
+                  ],
+                ),
               ),
             ),
           ),
@@ -238,7 +265,7 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20, top: 12),
+            padding: const EdgeInsets.only(right: 286, top: 12),
             child: Text(
               'Support',
               style: TextStyle(
@@ -250,10 +277,10 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
           ),
           SizedBox(
-            height: 8,
+            height: 5,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 8),
             child: InkWell(
               onTap: () {
                 Navigator.push(
@@ -303,42 +330,52 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 26,
+              horizontal: 21,
             ),
-            child: Container(
-              height: 50,
-              width: 374,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(12)),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 6,
-                  ),
-                  Container(
-                    height: 38,
-                    width: 38,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assest/ic_feedback.png')),
-                        color: Color(0xFFFDA758).withOpacity(0.10),
-                        borderRadius: BorderRadius.circular(12)),
-                  ),
-                  SizedBox(
-                    width: 14,
-                  ),
-                  Text(
-                    'Feedback',
-                    style: TextStyle(
-                        letterSpacing: -1,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Manrope-medium',
-                        fontSize: 16,
-                        color: Color(0xFF573353)),
-                  ),
-                  SizedBox(width: 180),
-                  Image.asset("assest/ic_forword.png")
-                ],
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CommunityScreen(),
+                    ));
+              },
+              child: Container(
+                height: 50,
+                width: 374,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 6,
+                    ),
+                    Container(
+                      height: 38,
+                      width: 38,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assest/ic_feedback.png')),
+                          color: Color(0xFFFDA758).withOpacity(0.10),
+                          borderRadius: BorderRadius.circular(12)),
+                    ),
+                    SizedBox(
+                      width: 14,
+                    ),
+                    Text(
+                      'Feedback',
+                      style: TextStyle(
+                          letterSpacing: -1,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Manrope-medium',
+                          fontSize: 16,
+                          color: Color(0xFF573353)),
+                    ),
+                    SizedBox(width: 180),
+                    Image.asset("assest/ic_forword.png")
+                  ],
+                ),
               ),
             ),
           ),
@@ -347,42 +384,52 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 26,
+              horizontal: 21,
             ),
-            child: Container(
-              height: 50,
-              width: 374,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(12)),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 6,
-                  ),
-                  Container(
-                    height: 38,
-                    width: 38,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assest/ic_security.png')),
-                        color: Color(0xFFFDA758).withOpacity(0.10),
-                        borderRadius: BorderRadius.circular(12)),
-                  ),
-                  SizedBox(
-                    width: 14,
-                  ),
-                  Text(
-                    'Privacy Policy',
-                    style: TextStyle(
-                        letterSpacing: -1,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Manrope-medium',
-                        fontSize: 16,
-                        color: Color(0xFF573353)),
-                  ),
-                  SizedBox(width: 155),
-                  Image.asset("assest/ic_forword.png")
-                ],
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CommunityScreen(),
+                    ));
+              },
+              child: Container(
+                height: 50,
+                width: 374,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 6,
+                    ),
+                    Container(
+                      height: 38,
+                      width: 38,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assest/ic_security.png')),
+                          color: Color(0xFFFDA758).withOpacity(0.10),
+                          borderRadius: BorderRadius.circular(12)),
+                    ),
+                    SizedBox(
+                      width: 14,
+                    ),
+                    Text(
+                      'Privacy Policy',
+                      style: TextStyle(
+                          letterSpacing: -1,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Manrope-medium',
+                          fontSize: 16,
+                          color: Color(0xFF573353)),
+                    ),
+                    SizedBox(width: 155),
+                    Image.asset("assest/ic_forword.png")
+                  ],
+                ),
               ),
             ),
           ),
@@ -391,42 +438,52 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 26,
+              horizontal: 21,
             ),
-            child: Container(
-              height: 50,
-              width: 374,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(12)),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 6,
-                  ),
-                  Container(
-                    height: 38,
-                    width: 38,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assest/ic_about.png')),
-                        color: Color(0xFFFDA758).withOpacity(0.10),
-                        borderRadius: BorderRadius.circular(12)),
-                  ),
-                  SizedBox(
-                    width: 14,
-                  ),
-                  Text(
-                    'About',
-                    style: TextStyle(
-                        letterSpacing: -1,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Manrope-medium',
-                        fontSize: 16,
-                        color: Color(0xFF573353)),
-                  ),
-                  SizedBox(width: 205),
-                  Image.asset("assest/ic_forword.png")
-                ],
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NewHabits(),
+                    ));
+              },
+              child: Container(
+                height: 50,
+                width: 374,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 6,
+                    ),
+                    Container(
+                      height: 38,
+                      width: 38,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assest/ic_about.png')),
+                          color: Color(0xFFFDA758).withOpacity(0.10),
+                          borderRadius: BorderRadius.circular(12)),
+                    ),
+                    SizedBox(
+                      width: 14,
+                    ),
+                    Text(
+                      'About',
+                      style: TextStyle(
+                          letterSpacing: -1,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Manrope-medium',
+                          fontSize: 16,
+                          color: Color(0xFF573353)),
+                    ),
+                    SizedBox(width: 205),
+                    Image.asset("assest/ic_forword.png")
+                  ],
+                ),
               ),
             ),
           ),
@@ -439,29 +496,70 @@ class _SettingScreenState extends State<SettingScreen> {
             child: Image.asset("assest/Rectangle.png"),
           ),
           Positioned(
-              top: 29, left: 25, child: Image.asset("assest/ic_bn-1.png")),
+              top: 29,
+              left: 25,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 0;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-1.png"))),
           Positioned(
-              left: 107, top: 26, child: Image.asset("assest/ic_bn-2.png")),
+              left: 107,
+              top: 26,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 1;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-2.png"))),
           Positioned(
-              left: 266, top: 25, child: Image.asset("assest/ic_bn-3.png")),
+              left: 266,
+              top: 25,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 2;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-3.png"))),
           Positioned(
-              left: 340, top: 23, child: Image.asset("assest/ic_bn-4.png")),
+              left: 340,
+              top: 23,
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      pageindex = 3;
+                    });
+                  },
+                  child: Image.asset("assest/ic_bn-4.png"))),
         ],
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(18.0),
+      floatingActionButton: Container(
+        height: 45,
+        width: 45,
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+              offset: Offset(0, 20),
+              blurRadius: 60,
+              color: Color(0xFFFC9D45).withOpacity(0.50))
+        ]),
         child: FloatingActionButton(
             backgroundColor: const Color(0xFFFC9D45),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(64)),
-            onPressed: () {},
-            child: const Icon(
-              Icons.add,
-              color: Color(0xFF573353),
-            )),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NewHabits(),
+                  ));
+            },
+            child: Image.asset('assest/ic_plus.png')),
       ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
