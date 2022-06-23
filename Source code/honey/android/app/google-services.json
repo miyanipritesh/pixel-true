@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "495340538535",
+    "project_id": "honey-e3ceb",
+    "storage_bucket": "honey-e3ceb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495340538535:android:d1e90fea41a0875877a982",
+        "android_client_info": {
+          "package_name": "com.example.honey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495340538535-o6g23nkgdc7fv1m4ijia9vje0edo81iv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.honey",
+            "certificate_hash": "59e196f60fa9ff760d8c8d24ced8f0d662345be5"
+          }
+        },
+        {
+          "client_id": "495340538535-126dj6mumkbvmgsbrnpshgk5ks5r3s0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1-W_mXtxe3-2vNhuB-gC_BR91EuNZnTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "495340538535-126dj6mumkbvmgsbrnpshgk5ks5r3s0h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
