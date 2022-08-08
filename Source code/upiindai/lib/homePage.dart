@@ -10,38 +10,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var logo;
   Future getData() async {
     final responce = await http.get(Uri.parse(
-        'https://www.cricketexchange.in/scoreboard/F95/13W/Final/EY/3Z/sgt-vs-bd-final-shpageeza-cricket-league-2022/live'));
+        'https://www.bot.or.th/Thai/ConsumerInfo/Fraud/Pages/BOTLicensedLoan.aspx'));
 
     dom.Document html = dom.Document.html(responce.body);
 
-    final title = html
-        .getElementsByClassName('live-score-card')
-        .map((e) =>
-            e.children[0].children[0].children[1].children[1].children[0].text)
-        .toList();
-
-    // final logo = html
-    //     .getElementsByClassName(
-    //         'bg-gray grpctl73_g_e8579_0 grpctl73_g_e8579_0 grpctl73_g_e8579_0')
-    //     .map((e) => e.getElementsByTagName('img')[0].attributes['src'])
-    //     .toList();
-    //
-    // final text = html
-    //     .getElementsByClassName(
-    //         'bg-gray grpctl73_g_e8579_0 grpctl73_g_e8579_0 grpctl73_g_e8579_0')
-    //     .map((e) {
-    //   print(
-    //       '++++++++++++++++${e.children[0].getElementsByTagName('img')[0].attributes['src']}');
-    //   return e.getElementsByTagName('a')[0].attributes['href'];
-    // }).toList();
-
-    print('*****************$title');
-
-    // print('*****************$logo');
-    //
-    // print('*****************$text');
+    final logo1 = html
+        .getElementsByClassName(
+            'bg-gray grpctl73_g_029ae_0 grpctl73_g_029ae_0 grpctl73_g_029ae_0')
+        .map((e) {
+      print(
+          '+++++++++++++${e.getElementsByTagName('img')[0].attributes['src']}');
+      return e.getElementsByTagName('img')[0].attributes['src'];
+    }).toList();
+    // logo.addAll(logo1);
+    setState(() {});
+    print('********logo2*********$logo1');
   }
 
   @override
@@ -52,6 +38,20 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    print('*****************$logo');
+    return Scaffold(
+        //     body: ListView.builder(
+        //   shrinkWrap: true,
+        //   itemCount: 5,
+        //   itemBuilder: (context, index) => Container(
+        //       height: 100,
+        //       width: 100,
+        //       child: Image.network(
+        //         logo[index],
+        //         height: 40,
+        //         width: 40,
+        //       )),
+        // )
+        );
   }
 }
